@@ -5,6 +5,7 @@ from django.shortcuts import render, get_object_or_404
 # from django.http import HttpResponse
 from .models import Post, Group
 
+
 # Главная страница
 def index(request):
     # Одна строка вместо тысячи слов на SQL:
