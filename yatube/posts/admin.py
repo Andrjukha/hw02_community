@@ -4,6 +4,7 @@ from yatube.settings import EMPTY_VALUE_DISPLAY
 from .models import Group
 from .models import Post
 
+
 class GroupAdmin(admin.ModelAdmin):
     list_display = ("pk", "title", "slug", "description")
     EMPTY_VALUE_DISPLAY

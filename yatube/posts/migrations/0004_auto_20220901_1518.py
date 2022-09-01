@@ -8,36 +8,50 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('posts', '0003_auto_20220829_1358'),
+        ("posts", "0003_auto_20220829_1358"),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='group',
-            options={'verbose_name_plural': 'группы'},
+            name="group",
+            options={"verbose_name_plural": "группы"},
         ),
         migrations.AlterModelOptions(
-            name='post',
-            options={'ordering': ['-pub_date'], 'verbose_name_plural': 'посты'},
+            name="post",
+            options={"ordering": ["-pub_date"], "verbose_name_plural": "посты"},
         ),
         migrations.AlterField(
-            model_name='post',
-            name='author',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='posts', to=settings.AUTH_USER_MODEL, verbose_name='автор'),
+            model_name="post",
+            name="author",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="posts",
+                to=settings.AUTH_USER_MODEL,
+                verbose_name="автор",
+            ),
         ),
         migrations.AlterField(
-            model_name='post',
-            name='group',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='posts', to='posts.Group', verbose_name='группа'),
+            model_name="post",
+            name="group",
+            field=models.ForeignKey(
+                blank=True,
+                null=True,
+                on_delete=django.db.models.deletion.SET_NULL,
+                related_name="posts",
+                to="posts.Group",
+                verbose_name="группа",
+            ),
         ),
         migrations.AlterField(
-            model_name='post',
-            name='pub_date',
-            field=models.DateTimeField(auto_now_add=True, verbose_name='дата публикации'),
+            model_name="post",
+            name="pub_date",
+            field=models.DateTimeField(
+                auto_now_add=True, verbose_name="дата публикации"
+            ),
         ),
         migrations.AlterField(
-            model_name='post',
-            name='text',
-            field=models.TextField(verbose_name='текст публикации'),
+            model_name="post",
+            name="text",
+            field=models.TextField(verbose_name="текст публикации"),
         ),
     ]
