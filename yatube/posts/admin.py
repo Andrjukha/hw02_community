@@ -1,4 +1,4 @@
-#from django.conf import settings
+# from django.conf import settings
 from django.contrib import admin
 from .models import Group
 from .models import Post
@@ -18,7 +18,7 @@ class PostAdmin(admin.ModelAdmin):
     # Добавляем возможность фильтрации по дате
     list_filter = ("pub_date",)
     list_editable = ("group",)
-    #settings.EMPTY_VALUE_DISPLAY
+    # settings.EMPTY_VALUE_DISPLAY
     empty_value_display = '-пусто-'
 
 
