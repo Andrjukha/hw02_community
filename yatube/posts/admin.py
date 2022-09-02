@@ -1,13 +1,13 @@
+#from django.conf import settings
 from django.contrib import admin
-
-from yatube.settings import EMPTY_VALUE_DISPLAY
 from .models import Group
 from .models import Post
 
 
 class GroupAdmin(admin.ModelAdmin):
     list_display = ("pk", "title", "slug", "description")
-    EMPTY_VALUE_DISPLAY
+   # settings.EMPTY_VALUE_DISPLAY
+    empty_value_display = '-пусто-'
 
 
 class PostAdmin(admin.ModelAdmin):
@@ -18,7 +18,8 @@ class PostAdmin(admin.ModelAdmin):
     # Добавляем возможность фильтрации по дате
     list_filter = ("pub_date",)
     list_editable = ("group",)
-    EMPTY_VALUE_DISPLAY
+    #settings.EMPTY_VALUE_DISPLAY
+    empty_value_display = '-пусто-'
 
 
 admin.site.register(Post, PostAdmin)
