@@ -6,7 +6,7 @@ from .models import Post
 
 class GroupAdmin(admin.ModelAdmin):
     list_display = ("pk", "title", "slug", "description")
-   # settings.EMPTY_VALUE_DISPLAY
+    # settings.EMPTY_VALUE_DISPLAY
     empty_value_display = '-пусто-'
 
 
