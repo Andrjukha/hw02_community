@@ -9,9 +9,11 @@ from .models import Post, Group
 def index(request):
 
     posts = Post.objects.order_by("-pub_date")[:10]
+    title = 'Последние обновления на сайте'
 
     context = {
         "posts": posts,
+        'title': title,
     }
     return render(request, "posts/index.html", context)
 
@@ -19,13 +21,9 @@ def index(request):
 def group_posts(request, slug):
     group = get_object_or_404(Group, slug=slug)
     posts = group.posts.all()[:10]
-    text = "Лев Толстой – зеркало русской революции."
-    paragraph = "Группа тайных поклонников графа."
-
+    
     context = {
         "group": group,
         "posts": posts,
-        "text": text,
-        "paragraph": paragraph,
     }
     return render(request, "posts/group_list.html", context)
