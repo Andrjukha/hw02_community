@@ -1,19 +1,14 @@
-# from typing import Any
 from django.shortcuts import render, get_object_or_404
-
-# from django.http import HttpResponse
 from .models import Post, Group
 
 
 # Главная страница
 def index(request):
 
-    posts = Post.objects.order_by("-pub_date")[:10]
-    title = 'Последние обновления на сайте'
+    posts = Post.objects.all()[:10]
 
     context = {
         "posts": posts,
-        'title': title,
     }
     return render(request, "posts/index.html", context)
 

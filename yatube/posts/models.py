@@ -30,13 +30,6 @@ class Post(models.Model):
         verbose_name="автор"
     )
 
-    class Meta:
-        verbose_name_plural = "посты"
-        ordering = ("-pub_date",)
-
-    def __str__(self):
-        return self.text
-
     group = models.ForeignKey(
         Group,
         on_delete=models.SET_NULL,
@@ -45,3 +38,9 @@ class Post(models.Model):
         blank=True,
         verbose_name="группа",
     )
+    class Meta:
+        verbose_name_plural = "посты"
+        ordering = ("-pub_date",)
+
+    def __str__(self):
+        return self.text

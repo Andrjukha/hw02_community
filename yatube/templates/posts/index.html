@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
-{% block  title %} Последние обновления на сайте {% endblock %} 
+{% block  title %} {{title}}{% endblock %} 
 {% block content %}
+<h1>Последние обновления на сайте</h1>
     <div class="container py-5">     
       <h1>{{title}}</h1>
       {% include 'includes/article.html' %}
