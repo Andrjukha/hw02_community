@@ -26,14 +26,14 @@ class Post(models.Model):
     author = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
-        related_name="author",
+        related_name="posts",
         verbose_name="автор"
     )
 
     group = models.ForeignKey(
         Group,
         on_delete=models.SET_NULL,
-        related_name="group",
+        related_name="posts",
         null=True,
         blank=True,
         verbose_name="группа",

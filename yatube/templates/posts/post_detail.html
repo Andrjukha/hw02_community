@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
-{% block  title %} <title>Пост {{post|truncatechars: 30}}</title> 
-{% endblock %}
+{% block  title %} 
+Пост
+{% endblock title %}
 {% block content %}
       <div class="row">
         <aside class="col-12 col-md-3">
@@ -11,9 +12,10 @@
             {% if post.group %}   
             <li class="list-group-item">
               Группа: {{post.group}}
-              <a href="{% url 'post:list' post.group.slug%}">
+              <a href="{% url 'posts:list' post.group.slug%}">
                 все записи группы
               </a>
+              {% endif %}
             </li>
             <li class="list-group-item">
               Автор: {{post.author.get_full_name}}
@@ -22,7 +24,7 @@
               Всего постов автора:  <span >{{post.author.posts.count}}</span>
             </li>
             <li class="list-group-item">
-              <a href="{% url 'post:profile' post.author.username%}">
+              <a href="{% url 'posts:profile' post.author.username%}">
                 все посты пользователя
               </a>
             </li>
