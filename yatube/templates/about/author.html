@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% with request.resolver_match.view_name as view_name %}
+<li class="nav-item">
+  <a class="nav-link active" href="{% url 'about:author' %}">Об авторе</a>
+</li> 
+{% endwith %} 
+{% block content %}
+<h1>Привет, я автор</h1>
+<p>
+  Тут я размещу информацию о себе, используя свои умения верстать.
+  Картинки, блоки, элементы бустрап. А может быть, просто напишу несколько абзацев текста. 
+</p>
+
+{% endblock %} 

@@ -1,12 +1,13 @@
 {% extends 'base.html' %}
 {% block  title %} {{title}} {% endblock %}
 {% block content %}
-<h1>Записи сообщества {{ group }}.</h1>
+<h1>Записи сообщества {{ group.title }}.</h1>
     <p>{{ group.description }}</p>
 <!-- класс py-5 создает отступы сверху и снизу блока -->
     <div class="container py-5">
        {% for post in posts %}
            {% include 'includes/article.html' %}
        {% endfor %} 
+       {% include 'includes/paginator.html' %}
     </div> 
 {% endblock %}
