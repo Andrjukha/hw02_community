@@ -39,12 +39,9 @@ def profile(request, username):
 
 
 def post_detail(request, post_id):
-    page_obj = get_object_or_404(Post, id=post_id)
-    count_posts = page_obj.author.posts.count()
+    post = get_object_or_404(Post, id=post_id)
     context = {
-        "page_obj": page_obj,
-        "count": count_posts,
-
+        "post": post,
     }
     return render(request, 'posts/post_detail.html', context) 
 
@@ -55,7 +52,7 @@ def post_create(request):
         post=form.save(commit=False)
         post.author=request.user
         post.save()
-        return redirect("posts:profile", username=post)
+        return redirect("posts:profile", username=post.author)
     context = {
         "form": form,
     }
